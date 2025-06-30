@@ -1,0 +1,4 @@
+.DS_Store
+solidity-basic/artifacts/
+solidity-basic/**/artifacts
+solidity-basic/.deps
