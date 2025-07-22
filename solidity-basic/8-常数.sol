@@ -6,7 +6,6 @@ contract HelloConst {
     // 只有数值变量可以声明constant和immutable; string和bytes可以声明为constant，但不能为immutable
     // mapping(uint => address) immutable units;
 
-
     // constant 变量必须在声明的时候初始化，之后再也不能改变。
     uint256 public constant CONSTANT_NUM = 10;
     string constant CONSTANT_STRING = "0xAA";

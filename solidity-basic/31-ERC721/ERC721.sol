@@ -90,7 +90,7 @@ contract ERC721 is IERC721, IERC721Metadata {
         require(owner == from, "not owner");
         require(to != address(0), "transfer to the zero address");
 
-        _approve(owner, address(0), tokenId);
+        _approve(owner, address(0), tokenId); // 清空tokenId的原来授权
 
         _balances[from] -= 1;
         _balances[to] += 1;
@@ -102,8 +102,9 @@ contract ERC721 is IERC721, IERC721Metadata {
     // 实现IERC721 transferFrom => 非安全转账，不建议使用。
     function transferFrom(address from, address to, uint tokenId) external override {
         address owner = ownerOf(tokenId);
-        // 当前账户必须是 tokenId 的拥有者或授权者 => 当前用户是否可以操作tokenId
+        // 1. 当前用户是否有权限 操作tokenId; 当前账户必须是 tokenId 的拥有者或授权者
         require(_isApprovedOrOwner(owner, msg.sender, tokenId), "not owner nor approved");
+        // 2. 有权限 才能执行 转账操作
         _transfer(owner, from, to, tokenId);
     }
 

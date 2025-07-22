@@ -74,9 +74,10 @@ library Strings {
 // 使用库合约
 // 1. 利用using for指令 指令using A for B;可用于附加库合约（从库 A）到任何类型（B）。添加完指令后，库A中的函数会自动添加为B类型变量的成员，可以直接调用。
 // 注意：在调用的时候，这个变量会被当作第一个参数传递给函数
-using Strings for uint256; 
 
 contract HelloModule {
+    using Strings for uint256; 
+
     function getStr(uint256 _number) public pure returns (string memory) {
         return _number.toString();
     }

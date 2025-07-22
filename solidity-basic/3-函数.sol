@@ -37,7 +37,7 @@ contract HelloFunc {
 
     function minusPayable() external payable returns (uint256 balance) {
         minus();
-        // this.minusCall();
+        this.minusCall();
         // this 引用合约地址
         balance = address(this).balance;
     }
@@ -50,10 +50,10 @@ contract HelloFunc {
 
     // 命名返回
     function returnNamed() public pure returns (uint256 _number, bool _bool, uint256[3] memory _array) {
-        // _number = 2;
-        // _bool = true;
-        // _array = [uint256(1), 3, 5];
-        return (2, false, [uint256(1), 3, 5]);
+        _number = 2;
+        _bool = true;
+        _array = [uint256(1), 3, 5];
+        // return (2, false, [uint256(1), 3, 5]);
     }
 
     // 解构赋值: 解构赋值不能直接写在合约顶层

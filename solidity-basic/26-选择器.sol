@@ -13,7 +13,7 @@ msg.data是Solidity中的一个全局变量，值为完整的calldata（调用�
 
 method id、selector
 
-method id定义为 函数签名的Keccak哈希后的前4个字节；送的calldata中前4个字节是 selector（函数选择器）。
+method id定义为 函数签名的Keccak哈希后的前4个字节；发送的calldata中前4个字节是 selector（函数选择器）。
 当selector与method id相匹配时，即表示调用该函数。
 */
 
@@ -37,7 +37,7 @@ contract HelloSelector {
 
     // 计算method id => 0x6a627842; 与函数选择器一致
     function mintSelector() external pure returns(bytes4 mSelector){
-        return bytes4(keccak256("transfer(address,uint256)"));
+        return bytes4(keccak256("mint(address)"));
     }
 
     // 基础类型参数 固定长度类型参数 可变长度类型参数

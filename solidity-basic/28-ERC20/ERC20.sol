@@ -50,8 +50,7 @@ contract ERC20 is IERC20 {
     }
 
     // 被授权方将授权方sender的amount数量的代币转账给接收方recipient
-    // A 授权 B v1数量  allowance[A][B] += v1;
-    // B 要将A授权的 数量v2 进行转帐 allowance[A][B] -= v2;
+    // 想要转账, 必须知道 转账方(sender) 和 接受方(recipient)
     function transferFrom(address sender, address recipient, uint256 amount) external returns (bool){
         // 此处 sender 是授权方 A; 而 msg.sender 是 被授权方B
         allowance[sender][msg.sender] -= amount;

@@ -26,6 +26,7 @@ error CallFailed();
 contract SendEth {
     // payable使得部署时 可以转eth进去
     constructor() payable {}
+    
     receive() external payable { }
 
     /* transfer */

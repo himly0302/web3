@@ -20,8 +20,11 @@ contract HelloStorage {
     uint[] x = [1, 2, 3];
 
     function fStroage() public  {
-        uint[] storage XStorage = x;
+        uint[] storage XStorage = x; // 引用
         XStorage[0] = 100;
+
+        uint[] memory mstroage = x; // 值拷贝
+        mstroage[0] = 200;
     }
 
     /* 变量作用域 */
