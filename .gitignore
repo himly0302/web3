@@ -1,4 +1,6 @@
 .DS_Store
+node_modules
 solidity-basic/artifacts/
 solidity-basic/**/artifacts
 solidity-basic/.deps
+solidity-basic/.states

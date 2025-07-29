@@ -80,7 +80,7 @@ contract ERC721 is IERC721, IERC721Metadata {
     }
 
     // 查询spender地址是否可以使用tokenId（需要是owner或被授权地址）
-    function _isApprovedOrOwner(address owner, address spender, uint tokenId) private returns (bool) {
+    function _isApprovedOrOwner(address owner, address spender, uint tokenId) private view returns (bool) {
         return owner == spender || _tokenApprovals[tokenId] == spender || _operatorApprovals[owner][spender];
     }
 

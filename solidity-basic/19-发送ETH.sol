@@ -62,6 +62,10 @@ contract SendEth {
             revert CallFailed();
         }
     }
+
+    function getBalance() public view returns(uint, uint) {
+        return (address(this).balance, gasleft());
+    }
 }
 
 // 使用优先级 call > transfer > send
