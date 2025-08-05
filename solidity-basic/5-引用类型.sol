@@ -15,6 +15,7 @@ contract HelloTypes {
     uint8[2] array1;
     bytes1[5] array2;
     address[3] array3;
+    uint8[2] array11;
 
     // 动态数组：在声明时不指定数组的长度。用T[]的格式声明，其中T是元素的类型
     // 动态数组需要先初始化存储空间，比如使用new uint(x)，或者直接赋值一个数组字面量，例如array4 = [1,2,3];。

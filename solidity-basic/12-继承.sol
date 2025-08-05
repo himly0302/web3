@@ -33,6 +33,7 @@ contract Baba is Yeye {
         emit Log('baba');
     }
     function baba() public virtual {
+        say();
         emit Log('baba');
     }
 }

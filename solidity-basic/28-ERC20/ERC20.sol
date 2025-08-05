@@ -62,15 +62,23 @@ contract ERC20 is IERC20 {
 
     // 铸造代币函数，不在IERC20标准中。这里为了教程方便，任何人可以铸造任意数量的代币，实际应用中会加权限管理，只有owner可以铸造代币：
     function mint(uint amount) external {
-        balanceOf[msg.sender] += amount;
+        _mint(msg.sender, amount);
+    }
+
+    function _mint(address account, uint amount) internal {
+        balanceOf[account] += amount;
         totalSupply += amount;
-        emit Transfer(address(0), msg.sender, amount);
+        emit Transfer(address(0), account, amount);
     }
 
     // 销毁代币函数，不在IERC20标准中
     function burn(uint amount) external {
-        balanceOf[msg.sender] -= amount;
+        _burn(msg.sender, amount);
+    }
+
+    function _burn(address account, uint amount) internal {
+        balanceOf[account] -= amount;
         totalSupply -= amount;
-        emit Transfer(msg.sender, address(0), amount);
+        emit Transfer(account, address(0), amount);
     }
 }

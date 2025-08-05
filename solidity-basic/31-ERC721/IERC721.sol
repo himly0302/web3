@@ -27,6 +27,8 @@ interface IERC165 {
 
 /* IERC721 
 利用tokenId来表示特定的非同质化代币，授权或转账都要明确tokenId
+
+每个代币都有一个tokenId作为唯一标识，每个tokenId只对应一个代币
 */
 interface IERC721 is IERC165 {
     // 在转账时被释放，记录代币的发出地址from，接收地址to和tokenid
