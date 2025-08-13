@@ -56,7 +56,6 @@ library ECDSA {
         return ecrecover(_msgHash, v, r, s);
     }
 
-
     // 计算以太坊签名消息
     // 因为消息可以是能被执行的交易，也可以是其他任何形式。
     // 为了避免用户误签了恶意交易，EIP191提倡在消息前加上"\x19Ethereum Signed Message:\n32"字符，并再做一次keccak256哈希，作为以太坊签名消息。
@@ -87,10 +86,13 @@ contract SignatureNFT is ERC721 {
     }
 
     // 铸币
+    // 消息 包含  _account 和 _tokenId 这两个数据
+    // _signature 消息被私钥加密后的签名
     function mint(address _account, uint256 _tokenId, bytes memory _signature) external {
-        bytes32 _msgHash = getMessageHash(_account, _tokenId);
-        bytes32 _ethSignedMessageHash = ECDSA.toEthSignedMessageHash(_msgHash);
+        bytes32 _msgHash = getMessageHash(_account, _tokenId); // 消息
+        bytes32 _ethSignedMessageHash = ECDSA.toEthSignedMessageHash(_msgHash); // 以太坊签名消息
 
+        // 验证公钥
         require(verify(_ethSignedMessageHash, _signature), "Invalid signature");
         require(!mintedAddress[_account], "Already minted!");
 
