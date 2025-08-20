@@ -1,19 +1,16 @@
 import { ethers } from "ethers";
+import { MAIN_URL, TEST_URL } from "../const.js";
 
 // provider类
 // 是对以太坊网络连接的抽象，为标准以太坊节点功能提供简洁、一致的接口。
 // Provider不接触用户私钥，只能读取链上信息，不能写入
 
-// 查询各个链的公开节点 https://chainlist.org/
-const ALCHEMY_MAINNET_URL = "https://eth.llamarpc.com"; // <Ethereum Mainnet>
-const ALCHEMY_SEPOLIA_URL = "https://eth-sepolia.public.blastapi.io"; // <Ethereum Sepolia>
-
 // jsonRpcProvider 让用户连接到特定节点服务商的节点
 
 // 链接以太坊主网
-const providerETH = new ethers.JsonRpcProvider(ALCHEMY_MAINNET_URL);
+const providerETH = new ethers.JsonRpcProvider(MAIN_URL);
 // 连接Sepolia测试网
-const providerSepolia = new ethers.JsonRpcProvider(ALCHEMY_SEPOLIA_URL);
+const providerSepolia = new ethers.JsonRpcProvider(TEST_URL);
 
 const main = async () => {
   console.log("查询vitalik在主网和Sepolia测试网的ETH余额"); // 测试网目前不支持ENS域名，只能用钱包地址查询

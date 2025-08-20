@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, TEST_URL } from "../const.js";
 
 // 1.创建可写Contract变量
 // address: 合约地址 abi: 合约abi接口 signer: wallet对象
@@ -26,9 +26,7 @@ nonce：nonce
 
 async function main() {
   // 链接ETH测试网络
-  const provider = new ethers.JsonRpcProvider(
-    "https://eth-sepolia.public.blastapi.io"
-  );
+  const provider = new ethers.JsonRpcProvider(TEST_URL);
 
   // 利用私钥创建wallet对象
   const wallet = new ethers.Wallet(W_Proivate_Key, provider);

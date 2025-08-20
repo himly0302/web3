@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, TEST_URL } from "../const.js";
 
 // Signer签名者类
 // Web3.js认为用户会在本地部署以太坊节点，私钥和网络连接状态由这个节点管理（实际并不是这样）
@@ -7,9 +7,7 @@ import { W_Proivate_Key } from "../env.js";
 // 在ethers中，Signer签名者类是以太坊账户的抽象，可用于对消息和交易进行签名，并将签名的交易发送到以太坊网络，并更改区块链状态。
 // 注: Signer类是抽象类，不能直接实例化，我们需要使用它的子类：Wallet钱包类。
 
-const provider = new ethers.JsonRpcProvider(
-  "https://eth-sepolia.public.blastapi.io"
-);
+const provider = new ethers.JsonRpcProvider(TEST_URL);
 
 // Wallet钱包类
 // 1. 创建随机私钥的wallet对象

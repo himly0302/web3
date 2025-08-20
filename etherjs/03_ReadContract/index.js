@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { Infura_Key } from "../env.js";
+import { MAIN_URL } from "../const.js";
 // 在ethers中, Contract类是部署在以太坊网络上的合约（EVM字节码）的抽象。
 // 开发者通过它可以非常容易的对合约进行读取call和交易transaction，并可以获得交易的结果和事件。
 
@@ -13,9 +13,7 @@ import { Infura_Key } from "../env.js";
 // 注意 ethers中的call指的是只读操作，与solidity中的call不同。
 
 // 连接以太坊主网
-const provider = new ethers.JsonRpcProvider(
-  `https://mainnet.infura.io/v3/${Infura_Key}`
-);
+const provider = new ethers.JsonRpcProvider(MAIN_URL);
 
 // 创建只读Contract实例需要填入3个参数，分别是合约地址，合约abi和provider变量。
 

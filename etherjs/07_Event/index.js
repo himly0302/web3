@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, TEST_URL } from "../const.js";
 
 // 事件Event 智能合约释放出的事件存储于以太坊虚拟机的日志中。
 // 日志分为两个主题topics和数据data部分:
@@ -12,9 +12,7 @@ import { W_Proivate_Key } from "../env.js";
 
 async function main() {
   // 链接ETH测试网络
-  const provider = new ethers.JsonRpcProvider(
-    "https://eth-sepolia.public.blastapi.io"
-  );
+  const provider = new ethers.JsonRpcProvider(TEST_URL);
 
   // WETH ABI，只包含关心的Transfer事件
   // 注：要检索的事件必须包含在合约abi中

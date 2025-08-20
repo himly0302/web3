@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { Infura_Key, W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, MAIN_URL } from "../const.js";
 
 // 过滤器 当合约创建日志（释放事件）时，它最多可以包含[4]条数据作为索引（indexed）。
 // 因此，一个事件过滤器最多包含4个主题集，每个主题集是个条件，用于筛选目标事件。
@@ -19,9 +19,7 @@ import { Infura_Key, W_Proivate_Key } from "../env.js";
 
 async function main() {
   // 链接ETH主网
-  const provider = new ethers.JsonRpcProvider(
-    `https://mainnet.infura.io/v3/${Infura_Key}`
-  );
+  const provider = new ethers.JsonRpcProvider(MAIN_URL);
 
   // 合约地址
   const addressUSDT = "0xdac17f958d2ee523a2206206994597c13d831ec7";

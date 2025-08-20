@@ -1,11 +1,9 @@
 import { ethers } from "ethers";
-import { Infura_Key, W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, MAIN_URL } from "../const.js";
 
 async function main() {
   // 链接ETH主网
-  const provider = new ethers.JsonRpcProvider(
-    `https://mainnet.infura.io/v3/${Infura_Key}`
-  );
+  const provider = new ethers.JsonRpcProvider(MAIN_URL);
 
   // 构建USDT的Transfer的ABI
   const abiWETH = [

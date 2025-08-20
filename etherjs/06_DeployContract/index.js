@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import { W_Proivate_Key } from "../env.js";
+import { W_Proivate_Key, TEST_URL } from "../const.js";
 
 // 部署智能合约
 // 将编译智能合约得到的字节码发送到0地址。
@@ -15,9 +15,7 @@ import { W_Proivate_Key } from "../env.js";
 
 async function main() {
   // 链接ETH测试网络
-  const provider = new ethers.JsonRpcProvider(
-    "https://eth-sepolia.public.blastapi.io"
-  );
+  const provider = new ethers.JsonRpcProvider(TEST_URL);
 
   // 利用私钥创建wallet对象
   const wallet = new ethers.Wallet(W_Proivate_Key, provider);

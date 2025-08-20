@@ -1,7 +1,7 @@
 .DS_Store
+**/env.js
 node_modules
 solidity-basic/artifacts/
 solidity-basic/**/artifacts
 solidity-basic/.deps
 solidity-basic/.states
-etherjs/env
